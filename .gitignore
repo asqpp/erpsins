@@ -1,0 +1,32 @@
+# Dependencies
+/vendor/
+node_modules/
+
+# Environment
+.env
+config/database.php
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+/logs/*.log
+/tmp/*
+!/logs/.gitkeep
+!/tmp/.gitkeep
+
+# Cache
+/cache/*
+!/cache/.gitkeep
+
+# Uploads
+/public/uploads/*
+!/public/uploads/.gitkeep
