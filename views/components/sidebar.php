@@ -31,6 +31,54 @@
             Invoices
         </a>
 
+        <!-- Accounting Section -->
+        <div class="pt-4">
+            <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                Accounting
+            </h3>
+            <a href="<?php echo url('/accounting/accounts'); ?>"
+               class="<?php echo activeMenu('/accounting/accounts') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'; ?> group flex items-center px-2 py-2 text-sm font-medium rounded-md mt-1">
+                <i class="fas fa-book mr-3 text-lg"></i>
+                Chart of Accounts
+            </a>
+
+            <a href="<?php echo url('/accounting/journals'); ?>"
+               class="<?php echo activeMenu('/accounting/journals') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'; ?> group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                <i class="fas fa-receipt mr-3 text-lg"></i>
+                Journal Vouchers
+            </a>
+        </div>
+
+        <!-- Masters Section -->
+        <div class="pt-4">
+            <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                Masters
+            </h3>
+            <a href="<?php echo url('/masters/brokers'); ?>"
+               class="<?php echo activeMenu('/masters/brokers') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'; ?> group flex items-center px-2 py-2 text-sm font-medium rounded-md mt-1">
+                <i class="fas fa-handshake mr-3 text-lg"></i>
+                Brokers
+            </a>
+
+            <a href="<?php echo url('/masters/salesmen'); ?>"
+               class="<?php echo activeMenu('/masters/salesmen') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'; ?> group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                <i class="fas fa-user-tie mr-3 text-lg"></i>
+                Salesmen
+            </a>
+        </div>
+
+        <!-- HR Section -->
+        <div class="pt-4">
+            <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                Human Resources
+            </h3>
+            <a href="<?php echo url('/hr/employees'); ?>"
+               class="<?php echo activeMenu('/hr/employees') ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'; ?> group flex items-center px-2 py-2 text-sm font-medium rounded-md mt-1">
+                <i class="fas fa-id-card mr-3 text-lg"></i>
+                Employees
+            </a>
+        </div>
+
         <?php if (auth()->user()['role'] === 'admin'): ?>
         <div class="pt-4">
             <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">

@@ -63,8 +63,64 @@ $router->post('/settings', 'SettingsController@update', [AuthMiddleware::class])
 // Activity log
 $router->get('/activity', 'ActivityController@index', [AuthMiddleware::class]);
 
+// ============================================================================
+// ACCOUNTING MODULE ROUTES
+// ============================================================================
+
+// Chart of Accounts / Accounts
+$router->get('/accounting/accounts', 'AccountController@index', [AuthMiddleware::class]);
+$router->get('/accounting/accounts/create', 'AccountController@create', [AuthMiddleware::class]);
+$router->post('/accounting/accounts', 'AccountController@store', [AuthMiddleware::class]);
+$router->get('/accounting/accounts/{id}/edit', 'AccountController@edit', [AuthMiddleware::class]);
+$router->post('/accounting/accounts/{id}', 'AccountController@update', [AuthMiddleware::class]);
+$router->post('/accounting/accounts/{id}/delete', 'AccountController@destroy', [AuthMiddleware::class]);
+$router->get('/accounting/accounts/{id}/ledger', 'AccountController@ledger', [AuthMiddleware::class]);
+
+// Journal Vouchers
+$router->get('/accounting/journals', 'JournalController@index', [AuthMiddleware::class]);
+$router->get('/accounting/journals/create', 'JournalController@create', [AuthMiddleware::class]);
+$router->post('/accounting/journals', 'JournalController@store', [AuthMiddleware::class]);
+$router->get('/accounting/journals/{id}', 'JournalController@show', [AuthMiddleware::class]);
+$router->post('/accounting/journals/{id}/post', 'JournalController@post', [AuthMiddleware::class]);
+$router->post('/accounting/journals/{id}/delete', 'JournalController@destroy', [AuthMiddleware::class]);
+
+// ============================================================================
+// MASTERS MODULE ROUTES
+// ============================================================================
+
+// Brokers
+$router->get('/masters/brokers', 'BrokerController@index', [AuthMiddleware::class]);
+$router->get('/masters/brokers/create', 'BrokerController@create', [AuthMiddleware::class]);
+$router->post('/masters/brokers', 'BrokerController@store', [AuthMiddleware::class]);
+$router->get('/masters/brokers/{id}/edit', 'BrokerController@edit', [AuthMiddleware::class]);
+$router->post('/masters/brokers/{id}', 'BrokerController@update', [AuthMiddleware::class]);
+$router->post('/masters/brokers/{id}/delete', 'BrokerController@destroy', [AuthMiddleware::class]);
+
+// Salesmen
+$router->get('/masters/salesmen', 'SalesmanController@index', [AuthMiddleware::class]);
+$router->get('/masters/salesmen/create', 'SalesmanController@create', [AuthMiddleware::class]);
+$router->post('/masters/salesmen', 'SalesmanController@store', [AuthMiddleware::class]);
+$router->get('/masters/salesmen/{id}/edit', 'SalesmanController@edit', [AuthMiddleware::class]);
+$router->post('/masters/salesmen/{id}', 'SalesmanController@update', [AuthMiddleware::class]);
+$router->post('/masters/salesmen/{id}/delete', 'SalesmanController@destroy', [AuthMiddleware::class]);
+
+// ============================================================================
+// HR MODULE ROUTES
+// ============================================================================
+
+// Employees
+$router->get('/hr/employees', 'EmployeeController@index', [AuthMiddleware::class]);
+$router->get('/hr/employees/create', 'EmployeeController@create', [AuthMiddleware::class]);
+$router->post('/hr/employees', 'EmployeeController@store', [AuthMiddleware::class]);
+$router->get('/hr/employees/{id}/edit', 'EmployeeController@edit', [AuthMiddleware::class]);
+$router->post('/hr/employees/{id}', 'EmployeeController@update', [AuthMiddleware::class]);
+$router->post('/hr/employees/{id}/delete', 'EmployeeController@destroy', [AuthMiddleware::class]);
+
 // API endpoints (return JSON)
 $router->get('/api/customers/search', 'Api\\CustomerController@search', [AuthMiddleware::class]);
 $router->get('/api/products/search', 'Api\\ProductController@search', [AuthMiddleware::class]);
 $router->get('/api/products/{id}', 'Api\\ProductController@show', [AuthMiddleware::class]);
 $router->get('/api/dashboard/stats', 'Api\\DashboardController@stats', [AuthMiddleware::class]);
+$router->get('/api/accounts/search', 'Api\\AccountController@search', [AuthMiddleware::class]);
+$router->get('/api/brokers/search', 'Api\\BrokerController@search', [AuthMiddleware::class]);
+$router->get('/api/salesmen/search', 'Api\\SalesmanController@search', [AuthMiddleware::class]);
